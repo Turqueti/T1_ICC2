@@ -59,7 +59,6 @@ void instrucao_free(INSTRUCAO instruc){
     
     for (int i = 0; i < instruc.numArgs; i++)
     {
-        printf("free: %s\n",instruc.Args[i]);
         free(instruc.Args[i]);
     }
     free(instruc.Args);
@@ -117,7 +116,7 @@ void celula_print(celula cel){
     printf("prioridade: %d\n", cel.prior);
     printf("horario: ");
     horario_print(cel.chegada);
-    printf("descricao: %s",cel.descricao);
+    printf("descricao: %s\n",cel.descricao);
 }
 
 int main(int argc, char const *argv[])
@@ -125,7 +124,8 @@ int main(int argc, char const *argv[])
     
     INSTRUCAO test;
     char str[MAX_instruct];
-    scanf("%s",&str);
+    fgets(str, 100, stdin);
+    //scanf("%s",&str);
     test = instrucao_parser(str);
     //instrucao_print(test);
     celula celtest;
